@@ -1,0 +1,54 @@
+WS09 - Problem 3
+
+
+def calculateDistance(x1, y1, x2, y2):
+    dist = ((x2*0.5 - x1*0.5) ** 2 + (y2*0.5 - y1*0.5) ** 2)**(1/2)
+    return dist
+
+#give value to the X cordinate letters
+def value(letter):
+    return ord(letter) - ord('A') + 1
+
+d = ({})
+lst = []
+lst1 = []
+i=0;
+lmn = []
+final_answer = 0;
+
+inpt = input("Enter trip map references: ")
+
+#append valid data to the dictionary
+A1 = inpt.split(" ")
+for elm in A1:
+    x=elm.split()
+    ax = [a[0] for a in x]
+    bx = [a[1:] for a in x]
+    ax += bx
+    ab = ax[0].capitalize()
+    ba = int(ax[1])
+    if (ba>26):
+        print("Bad Reference: " + ab + str(ba))
+        exit()
+    else:
+        dx = {ab: ba}
+        d.update(dx)
+print(d)
+
+#get data from the dictionary
+for k,v in d.items():
+    lst.append(value(k))
+    lst1.append(v)
+
+for j in range(0,len(ax)):
+    #for j in range(0,i):
+    distance_anser = calculateDistance(lst1[j], lst[j], lst1[j + 1], lst[j + 1])
+    gsk = ["%.1f" % distance_anser]
+    lmn.append(float(gsk[0]))
+
+#total distance of all the given lines
+for x in lmn:
+    final_answer = final_answer + x
+print("Total Distance =",final_answer,"m")
+
+

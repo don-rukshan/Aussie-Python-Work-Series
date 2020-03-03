@@ -1,0 +1,22 @@
+Workshop4
+
+Task 1>>>>>>>
+
+BitBucket account details:
+email :- md_rukshan@yahoo.com
+username : umasa628
+password :- workshop4
+
+git clone https://umasa628@bitbucket.org/umasa628/workshop5.git
+
+CHECK THE SCREENSHOTS FOR MORE DATA...
+
+
+------------------------------------------------------------------------------
+
+Task 2 >>>>>>>
+
+Files should add to your university server folder.
+
+
+------------------------------------------------------------------------------

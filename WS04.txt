@@ -1,0 +1,45 @@
+2))
+
+1.
+a. int
+b. string
+c. boolean
+d. int
+e. float
+f. boolean
+
+2.
+a. comma
+b. semicolon
+c. colon
+d. round bracket
+e. curly bracket
+
+3.
+i<10	boolean		true
+i<j	boolean		false
+i%2	int		1
+j%2	int		0
+i%2==0	boolean		false
+j%2==0	boolean		true
+i%2==j%2 boolean	false
+'x*x'	string		'x*x'
+x*x<2*x	boolean		false
+i%2==0orj%2==0	boolean	true
+i%2==0andj%2==0	boolean	false
+
+3))
+
+3.2 problem
+
+i = 100
+while i > 0:
+    print("Seats remaining:",i)
+    pax = input("How many in your group?")
+    int(pax)
+    if int(pax)>i :
+        print("Unavailable Count")
+        break
+    i = i - int(pax)
+    if i <= 0:
+        print("Sold Out")

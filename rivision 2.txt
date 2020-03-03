@@ -1,0 +1,137 @@
+Revision 2
+
+<<<<<Task 2>>>>>>>
+
+W1G1>>>>>
+
+def getClump(listOfElems):
+        dictOfElems = dict()
+
+        for elem in listOfElems:
+                if elem in dictOfElems:
+                        dictOfElems[elem] += 1
+                else:
+                        dictOfElems[elem] = 1
+
+        dictOfElems = {key: value for key, value in dictOfElems.items() if value > 1}
+        count = 0
+        for key, value in dictOfElems.items():
+                count += 1
+        return count
+
+------------------------------------------------------------------------------------------------
+
+W2B2>>>>>>
+
+f = open('C:\\phillip.txt', 'r')
+
+count = 0
+wordcount={}
+for word in f.read().split():
+    if word not in wordcount:
+        wordcount[word] = 1
+    else:
+        wordcount[word] += 1
+for k,v in wordcount.items():
+    count+=v
+print("Number of Words : ", count)
+
+
+------------------------------------------------------------------------------------------------
+
+Dictionaries/sets/tuples>>>>>>>
+
+NO DATA TO DO THE QUESTION 
+
+------------------------------------------------------------------------------------------------
+
+Classes>>>>>>>>>>
+
+class BankAccount:
+
+    def __init__(self, customerName, initialBalance):
+        self.customerName = customerName
+        self.initialBalance = initialBalance
+        self.cashout = 0
+        self.avg = 0
+        self.count = 0
+
+    def deposit(self, addup):
+        self.initialBalance += addup
+        return self.initialBalance
+
+    def withdraw(self, cashout):
+        self.cost = cashout
+        self.count += 1
+        self.avg += cashout
+        self.initialBalance -= self.cost
+        return self.initialBalance, self.avg, self.count
+
+    def balance(self):
+        if self.initialBalance<0:
+                return "Invalid Balance"
+        else:
+                return self.initialBalance
+
+------------------------------------------------------------------------------------------------
+
+W1M1 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+def checkList(List1):
+    for i in range(len(List1) - 1):
+        if (List1[i] == 7 and List1[i+1] == 7) or (List1[i] == 7 and List1[i+2] == 7) :
+            return True
+    return False
+
+
+------------------------------------------------------------------------------------------------
+
+W1E6 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+def centered_average(nums):
+  total = 0
+  for num in nums:
+    total += num
+  avg = int((total -max(nums)-min(nums)) / (len(nums)-2))
+  return avg
+
+print(centered_average([1, 2, 3, 4, 100]))
+print(centered_average([1, 1, 5, 5, 10, 8, 7]))
+print(centered_average([-10, -4, -2, -4, -2, 0]))
+
+------------------------------------------------------------------------------------------------
+
+W1E4 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+def checkList(List1):
+    if List1[0]==List1[-1] and len(List1)>0:
+            return True
+    return False
+
+print(checkList([1,2,3]))
+print(checkList([1,2,3,1]))
+print(checkList([1,2,1]))
+
+------------------------------------------------------------------------------------------------
+
+W1F6>>>>>
+
+def getClump(listOfElems):
+        dictOfElems = dict()
+
+        for elem in listOfElems:
+                if elem in dictOfElems:
+                        dictOfElems[elem] += 1
+                else:
+                        dictOfElems[elem] = 1
+
+        dictOfElems = {key: value for key, value in dictOfElems.items() if value > 1}
+        count = 0
+        for key, value in dictOfElems.items():
+                count += 1
+        return count
+
+
+

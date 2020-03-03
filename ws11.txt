@@ -1,0 +1,127 @@
+WS11
+
+2))
+
+1.
+An object is a collection of data and behaviors that represent some entity (real or abstract). 
+A class defines the structure and behaviors of all entities of a given type. 
+An object is one particular "instance" of that type of entity.
+
+2.
+A reference is an entity which provides a way to access object of its type. 
+An object is an entity which provides a way to access the members of it's class or type. 
+Generally, You can't access an object without a reference to it
+
+3.
+Class members are members declared in the class and all those declared in all classes in its inheritance hierarchy.
+
+4.
+the creation of an object from a class is simply called instantiation. 
+
+5.
+A - subclass
+B - Superclass
+
+
+
+3))
+
+3.2 Problem 1>>
+
+
+class DNS:
+
+    def __init__(self):
+        self.count = 0
+        self.domain = [self.count]
+
+    def updateDomain(self, data, data2):
+        # for i in range(len(self.domain)):
+        # self.domain[self.count - 1] = [data, data2]
+        self.domain.insert(self.count, data)
+
+        self.domain.insert(self.count + 1, data2)
+        # self.count += self.count
+        # self.count+=self.count
+        return self.domain
+
+    def IPA_for_domain(self, data):
+        for i in range(len(self.domain)):
+            if self.domain[i] == data:
+                if self.domain.index(data):
+                    a = self.domain.index(data)
+                    return self.domain[a - 1]
+                else:
+                    return None
+
+
+P = DNS()
+while True:
+    data = input("\nEnter data [Y/N]")
+    if data.casefold() == "y":
+        entr = input("\nEnter New Domain: ")
+        entr2 = input("Enter IPA: ")
+        P.updateDomain(entr, entr2)
+
+    else:
+        break
+
+while True:
+    data = input("\nCheck IPA [Y/N]")
+    if data.casefold() == "y":
+        entr3 = input("\nEnter IPA to Check Domain: ")
+        print(P.IPA_for_domain(entr3))
+    elif data.casefold() == "n":
+        exit()
+
+
+
+
+
+3.3 problem 3>>
+
+
+
+class CheckDNS(DNS):
+    def __init__(self):
+        super().__init__()
+        self.blacklist = []
+
+    def blacklists(self, data):
+        self.blacklist.append(data)
+        return self.blacklist
+
+    def IPA_for_domain(self, data):
+        for i in range(len(self.blacklist)):
+            if self.blacklist[i] == data:
+                if self.domain.index(data):
+                    return "Classified"
+            elif self.blacklist[i] != data:
+                    a = self.domain.index(data)
+                    return self.domain[a - 1]
+            else:
+                return None
+
+
+P = CheckDNS()
+P.blacklists("32")
+
+while True:
+    data = input("\nEnter data [Y/N]")
+    if data.casefold() == "y":
+        entr = input("\nEnter New Domain: ")
+        entr2 = input("Enter IPA: ")
+        P.updateDomain(entr, entr2)
+
+    else:
+        break
+
+while True:
+    data = input("\nCheck IPA [Y/N]")
+    if data.casefold() == "y":
+        entr3 = input("\nEnter IPA to Check Domain: ")
+        print(P.IPA_for_domain(entr3))
+    elif data.casefold() == "n":
+        exit()
+    else:
+        break

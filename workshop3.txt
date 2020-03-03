@@ -1,0 +1,87 @@
+Workshop3>>>>>>>>
+
+<<<Task 3>>>
+
+
+Program1>>>
+
+def n0_punch(f):
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    no_punct = ""
+    for char in f:
+        if char not in punctuations:
+            no_punct = no_punct + char
+    return no_punct
+
+f = (input("Enter a String: ")).upper()
+w = n0_punch(f)
+
+x = list(w.split())
+
+wordcount={}
+for word in x:
+    if word not in wordcount:
+        wordcount[word] = 1
+    else:
+        wordcount[word] += 1
+for k,v in wordcount.items():
+    print(k , v)
+
+-----------------------------------------------------------------------------------
+
+Program2.py>>>>
+
+def n0_punch(f):
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    no_punct = ""
+    for char in f:
+        if char not in punctuations:
+            no_punct = no_punct + char
+    return no_punct
+
+f = (input("Enter a String: ")).upper()
+w = n0_punch(f)
+
+x = list(w.split())
+
+wordcount={}
+for word in x:
+    if word not in wordcount:
+        wordcount[word] = 1
+    else:
+        wordcount[word] += 1
+for k,v in wordcount.items():
+        print(k,"[",'*'*v,"]", round((v / len(x))*100),"%")
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+
+<<<Task 4>>>
+
+Suppose you have a python file Program2.py (above answer)
+
+>Create a file called wordhisto.sh that contains
+           #!/bin/bash
+           python Program2.py
+
+>mark it executable using
+	   $ chmod +x Program2.sh
+
+>then run it
+           $ ./wordhisto.sh
+
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+
+<<<Task 5>>>
+
+f = open('mbox-short.txt', 'r')
+
+subs = '.org'.casefold()
+
+res = [i for i in f.read().split() if subs in i]
+print("Email collection with (.org) : " + str(res))
+
+
+

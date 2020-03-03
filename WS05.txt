@@ -1,0 +1,58 @@
+WS05
+
+2))
+
+1.Indefinite loops are those where the number of iterations are not know at the start of the loop.
+Definite loops are those where the number of iterations to be done is known before the loops starts
+
+2.for loop
+3.while loop
+4. a.while   b.while    c.for
+5. a.1000    b.999    d.174757    e.5050
+6. a. len()    b. isdecimal()    c. strip()
+
+
+3))
+
+problem 1:
+
+string = input("Enter a string: ")
+store = [string]
+while string != (""):
+    string = input("Enter a string: ")
+    store1 = [string]
+    store.extend(store1)
+print("Longest was: '"+max(store, key=len)+"'")
+
+
+problem 2:
+
+def hasNumbers(inputString):
+    return any(char.isdigit() for char in inputString)
+string = input("Enter a string")
+while string !=(""):
+    print("Has no digit",not hasNumbers(string))
+    string = input("Enter a string")
+
+
+problem 3 :
+
+count = 0
+while count != 1:
+    dimension1 = input("Enter room dimension 1 (m):")
+    store1 = [float(dimension1)]
+    dimension2 = input("Enter room dimension 2 (m):")
+    store2 = [float(dimension2)]
+    number = (float(dimension1) and float(dimension2))
+    if number <=0:
+        break
+    store1.extend(store2)
+    print("Length = "+ ("%.3f" % max(store1)))
+    print("Width = "+ ("%.3f" % min(store1)))
+    print("Total length required lengthways = ", round(max(store1)))
+    print("Total length required widthways = " , round(2*min(store1)))
+
+
+
+
+

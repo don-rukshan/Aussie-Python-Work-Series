@@ -1,0 +1,14 @@
+WS04
+
+3.5
+
+x = input("Number of teams ? ")
+teams = int(x)*15
+
+bigBusCnt = teams//48;
+bigBusPax = bigBusCnt*48
+smallBusCnt = round(0.5+((teams-bigBusPax)/10))
+
+busCost = bigBusCnt*200.0 + smallBusCnt*95.0
+print("Hire " + str(bigBusCnt) + " big buses and "+ str(smallBusCnt) + " small buses")
+print("Cost = $",busCost)

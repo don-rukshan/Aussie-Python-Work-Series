@@ -1,0 +1,73 @@
+2))
+
+1.
+a. int
+b. float
+c. float
+d. float
+e. int
+f. int
+
+2. The binary form means add, returning a result that is the standard arithmetic sum of its operands. 
+The unary form means identity, returning the same value as its operand. 
+
+3. An integer is a number without a decimal point. A float is a floating-point number, 
+which means it is a number that has a decimal place. Floats are used when more precision is needed.
+
+4. A compiler is a translator which transforms source language (high-level language) into object language (machine language). 
+In contrast with a compiler, an interpreter is a program which imitates the execution of programs written in a source language
+
+5.
+a. yes
+b. yes
+c. no. must begin with a letter or an underscore
+d. yes
+e. yes
+f. no. names cant have spaces between each other. therefore it must use an underscore
+g. yes
+h. yes
+i. yes
+j. no. reserved words
+
+6.
+x	float	2.2
+i+x	float	9.2
+i%j	int	1
+j%i	int	2
+'x'	string	x
+'x'+'i'	string	xi
+
+
+3))
+
+3.1
+user = input("Enter your results")
+grade = int(user)
+if grade >= 90:
+    print("Gum leaf cluster")
+elif grade >= 60:
+    print("leafy twig")
+elif grade >= 45:
+    print("gum leaf")
+else:
+    print("dead twig")
+
+
+3.2
+x = input("Number of teams ?")
+teams = int(x)
+buses = round(0.5 + teams*15/38)
+print(buses)
+
+
+3.3
+name = input("Enter the salesperson's name ? ")
+hours = input("Overtime hours ?")
+sales = input("Weekly sale")
+overTime = int(hours)
+weeklySales = float(sales)
+Salary = 37*30.25 + overTime*30.25*1.5 + (weeklySales-3000)*3/100
+print("Total Salary $",Salary)
+
+
+

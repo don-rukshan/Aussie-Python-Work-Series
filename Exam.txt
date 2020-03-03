@@ -1,0 +1,242 @@
+1))
+
+a.
+The main difference between lists and a tuples is the fact that lists are mutable whereas tuples are immutable. 
+A mutable data type means that a python object of this type can be modified.
+
+
+b. 
+Infinite loops are most often used when the loop instance doesn't have the termination test at the top or the bottom, in the simplest case. 
+This tends to happen when there is two parts to the loop: code that must execute each time, and code that must only execute between each iteration.
+
+In definite loops, the number of iterations is known before we start the execution of the body of the loop. Example: repeat for 10 times printing out a *. 
+Example: while the user does not decide it is time to stop, print out a * and ask the user whether he wants to stop.
+
+For loop and the While Loop.
+
+
+c.
+Data members (Variables)
+Function Members (Methods)
+
+Data members defines the state or characteristics of the object. It can be primitive type or it may be of class type.
+Function Members defines the behavior of the object. It defines the functionality of the object.
+
+
+d.
+Overriding is the ability of a class to change the implementation of a method provided by one of its ancestors.
+Overriding is a very important part of OOP since it is the feature that makes inheritance exploit its full power. 
+Through method overriding a class may "copy" another class, avoiding duplicated code, and at the same time enhance or customize part of it. 
+Method overriding is thus a strict part of the inheritance mechanism.
+
+
+
+2))
+
+p 				bool 		True
+j / i				float		0.5
+j // i				int		0
+f / j				float		1.75
+p or False			bool		True
+s or p				str		apple
+s.isalpha() and not p 		bool		False
+i % j == j % i 			bool		False
+s[1] 				str		p
+s[1:] 				str		pple
+s[::-1] 			str		elppa
+a[1] 				tuple		(2,4)
+a[j][1] 			int		9
+d[s]				int		7
+j in d 				bool		False
+[(y, x) for (x, y) in a]	list		[(2, 1), (4, 2), (9, 3)]
+sorted(d.values())		list		[4, 7]
+
+
+
+3))
+
+a. 
+0
+0
+1
+0
+1
+2
+0
+1
+2
+3
+
+
+b.
+banana
+banana
+cherry
+banana
+cherry
+apple
+cherry
+apple
+apple
+
+
+c.
+ /\  /\  /\  /\ 
+/  \/  \/  \/  \
+\  /\  /\  /\  /
+ \/  \/  \/  \/ 
+ /\  /\  /\  /\ 
+/  \/  \/  \/  \
+\  /\  /\  /\  /
+ \/  \/  \/  \/ 
+
+
+d.
+[('a', 1), ('a', 2), ('b', 1), ('b', 2), ('c', 1), ('c', 2)]
+
+
+
+
+4))
+
+a.
+def correct_a(listA):
+    for a, b in listA:
+        if a > b:
+            return a
+        else:
+            continue
+
+
+b.
+def correct_ab(listA):
+    x = list()
+    for a, b in listA:
+        if a <= b:
+            x.append((a,b))
+        else:
+            continue
+    return x
+
+
+c. NOT COMPLETED
+
+def seperate_string_number(string1):
+    string = string1.split()
+    previous_character = string[0]
+    groups = []
+    newword = string[0]
+    for x, i in enumerate(string[1:]):
+        if i.isalpha() and previous_character.isalpha() and ' ':
+            newword += i
+        elif i.isdigit() and previous_character.isdigit() and not "&":
+            newword += i
+        else:
+            groups.append(newword)
+            newword = i
+
+        previous_character = i
+
+        if x == len(string) - 2:
+            groups.append(newword)
+            newword = ''
+
+    if '&' in groups:
+        i = groups.index("&")
+        groups[i-1:i+2] = [' '.join(groups[i-1: i+2])]
+        print("yes")
+
+
+    Team1 = groups[0]
+    Team1_results = int(groups[1])
+    Team2 = groups[3]
+    Team2_results = int(groups[2])
+
+    print(Team1_results,Team1)
+    print(Team2_results,Team2)
+
+    return groups
+
+
+f = open((input("Enter File Name: ")).capitalize()+".txt")
+lines = 5 #need to read the full file line by line
+line = f.readline()
+for cnt in range(lines):
+    print("{}".format(line.strip()))
+    line = f.readline()
+
+
+print(seperate_string_number(line))
+
+
+d.
+(i).
+
+class GoCard:
+
+    def __init__(self,initialBalance):
+        self.initialBalance = initialBalance
+        self.cost = 0
+        self.avg = 0
+        self.count = 0
+
+    def topUps(self,reload):
+        self.initialBalance += reload
+        return self.initialBalance
+
+    def fareCost(self,cost):
+        self.cost = cost
+        self.count+=1
+        self.avg += cost
+        self.initialBalance -= self.cost
+        return self.initialBalance, self.avg, self.count
+
+    def avgFare(self):
+        return self.avg/self.count
+
+
+(ii).
+
+P1 = GoCard(100.0)
+P1.fareCost(3.50)
+P1.topUps(20.0)
+
+print("Balance $: %.2f " % P1.initialBalance)
+print("Average Fare $: %.2f" % P1.avgFare())
+
+
+
+(iii).
+
+class GoCardConcession(GoCard):
+    def __init__(self, initialBalance, concession):
+        super().__init__(initialBalance)
+        self.initialBalance = initialBalance
+        self.concession = concession
+        self.cost = 0
+        self.avg = 0
+        self.count = 0
+
+    def fareCost(self, cost):
+        self.cost = cost * (100 - self.concession) / 100
+        self.count += 1
+        self.avg += cost* (100 - self.concession) / 100
+        self.initialBalance -= self.cost
+        return self.initialBalance, self.avg, self.count
+
+
+(iv).
+
+P2 = GoCardConcession(100.0, 30)
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,158 @@
+Revision 1
+
+
+Task 2>>>
+
+A1 = list(input("Enter a String : "))
+A2 = list(input("Enter the second String : "))
+
+L1 = len(A1)
+L2 = len(A2)
+
+J = []
+if L1 > L2:
+    i = L2;
+    while i>0:
+        J.append(A1[-i])
+        i-=1
+    print(''.join(J)+''.join(A2))
+
+else:
+    i = L1;
+    while i > 0:
+        J.append(A2[-i])
+        i -= 1
+    print(''.join(A1)+''.join(J))
+
+----------------------------------------------------------------------------------------------
+Task 3>>>
+
+W116>>>>>>>>>>>>>
+
+hr = int(input("Enter hours : "))
+mint = int(input("Enter Minutes : "))
+sec = int(input("Enter Seconds : "))
+total_sec = (hr*3600)+(mint*60)+sec
+print(total_sec)
+
+----------------------------------------------------
+
+W125>>>>>>>>>>>>
+
+cost = float(input("Enter Cost : "))
+
+bal = 1.00-cost
+
+a = bal%0.50
+ab = int((bal-a)//0.50)
+print("Number of 50 cents Coins : ", ab)
+
+b = a%0.20
+bb = int((a-b)//0.20)
+print("Number of 20 cents Coins : ", bb)
+
+c = b%0.10
+cb = int((b-c)//0.10)
+print("Number of 10 cents Coins : ", cb)
+
+d = c%0.05
+db = int((c-d)//0.05)
+print("Number of 5 cents Coins  : ", db)
+
+e = d%0.01
+eb = int((d-e)//0.01)
+print("Number of 1 cent Coins   : ", eb)
+
+----------------------------------------------------
+
+W134 >>>>>>>>>>>>>>>>
+
+enterNum = int(input("Enter Integer : "))
+
+if enterNum > 0:
+    print("True")
+else:
+    print("False")
+
+----------------------------------------------------
+
+W142 >>>>>>>>>>>>>>>>
+
+
+----------------------------------------------------
+
+W152 >>>>>>>>>>>>>>>>
+
+enterNum = int(input("Enter Grade : "))
+
+if enterNum >100:
+    print("Illegal Grade")
+elif enterNum >=50:
+    print("Passed")
+elif enterNum >=0:
+    print("Failed")
+else:
+    print("Illegal Grade")
+
+----------------------------------------------------
+
+W163 >>>>>>>>>>>>>>
+
+enterNum1 = int(input("Enter Number 1 : "))
+enterNum2 = int(input("Enter Number 2 : "))
+enterNum3 = int(input("Enter Number 3 : "))
+
+numbers = [enterNum1,enterNum2, enterNum3]
+numbers.sort()
+
+print(numbers)
+
+d1= numbers[0]-numbers[1]
+d2= numbers[1]-numbers[2]
+
+if d1==d2:
+    print("True")
+else:
+    print("False")
+
+----------------------------------------------------
+
+W173 >>>>>>>>>>>>>>
+
+def addup(n):
+    if(n <= 1):
+        return 1
+    else:
+        return(n+addup(n-1))
+n = int(input("Enter number:"))
+print("Addup:")
+print(addup(n))
+
+----------------------------------------------------
+
+W1I5 >>>>>>>>>>>>>>
+
+A2 = (input("Enter String : ")).casefold()
+
+
+if A2.count("cat")==A2.count("dog"):
+    print("True")
+else:
+    print("False")
+
+----------------------------------------------------
+
+W1A4 >>>>>>>>>>>>>>
+
+s1 = input("Enter the 1st String : ")
+s2 = input("Enter the 2nd String : ")
+
+set1 = set(s1)
+set2 = set(s2)
+
+common = list(set1 & set2)
+
+result = [ch for ch in s1 if ch not in common] + \
+        [ch for ch in s2 if ch not in common]
+
+print(''.join(result))

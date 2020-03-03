@@ -1,0 +1,127 @@
+WS08
+
+3))
+
+problem 1:
+
+def minmax(list):
+    i = 0
+    listlen = len(list)
+    while i < listlen:
+        list[i] = int(list[i])
+        i += 1
+    min = list[0]
+    max = 0
+    for i in list:
+        if i < min:
+            min = i
+        if i > max:
+            max = i
+    return min, max
+
+
+str = input("List:")
+list = str.split(" ")
+min, max = minmax(list)
+print('min={} max={}'.format(min, max))
+
+
+
+problem 2:
+
+while True:
+    a = input("List 1 : ")
+    b = input("List 2 : ")
+
+    if(a=="" or b==""):
+        break
+    else:
+        list1 = list(map(int, a.split()))
+        list2 = list(map(int, b.split()))
+        print(set(list1).difference(list2))
+
+
+
+
+
+problem 3:
+
+while True:
+    a = input("List : ")
+
+    if(a==""):
+        break
+    else:
+        list1, list2 = a.split('; ')
+        list1 = list(map(int, list1.split()))
+        list2 = list(map(int, list2.split()))
+        copycat = (set(list1).intersection(list2))
+        print(sorted(copycat, reverse=False))
+
+
+
+
+problem 4:
+
+def checkIsAP(arr, n):
+    if (n == 1): return True
+
+    arr.sort()
+    d = arr[1] - arr[0]
+    for i in range(2, n):
+        if (arr[i] - arr[i - 1] != d):
+            return False
+    return True
+
+while True:
+    a = input("List : ")
+    if(a==""):
+        break
+    else:
+        arr = list(map(int, a.split()))
+        n = len(arr)
+        print("True") if (checkIsAP(arr, n)) else print("False")
+
+
+
+
+
+problem 5:
+
+def lenghtOfLongest(set, n):
+    if (n <= 2):
+        return n
+    L = [[0 for x in range(n)]
+         for y in range(n)]
+    x = 2
+
+    for i in range(n):
+        L[i][n - 1] = 2
+
+    for j in range(n - 2, 0, -1):
+        i = j - 1
+        k = j + 1
+        while (i >= 0 and k <= n - 1):
+            if (set[i] + set[k] < 2 * set[j]):
+                k += 1
+            elif (set[i] + set[k] > 2 * set[j]):
+                L[i][j] = 2
+                i -= 1
+            else:
+                L[i][j] = L[j][k] + 1
+                x = max(x, L[i][j])
+                i -= 1
+                k += 1
+                while (i >= 0):
+                    L[i][j] = 2
+                    i -= 1
+    return x
+
+while True:
+    a = input("List : ")
+    if(a==""):
+        break
+    else:
+        n = list(map(int, a.split()))
+        n1 = len(n)
+        print(lenghtOfLongest(n, n1))

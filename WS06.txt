@@ -1,0 +1,90 @@
+2))
+
+1. a.10  b.30  c.10  d.10   e.infinite
+
+2. 
+a.
+*
+*
+*
+*
+*
+
+b. *****
+
+c.
+*
+**
+***
+****
+
+d. 
+*
+ *
+  *
+   *
+    *
+
+e. 
+     *
+    *
+   *
+  *
+ *
+
+
+3))
+
+problem 1:
+
+string = input("Enter a string: ")
+store = [string]
+while string != (""):
+    string = input("Enter a string: ")
+    zf = [string]
+    store.extend(zf)
+store.sort()
+while '' in store:
+    store.remove('')
+print("\n".join(store))
+
+
+
+problem 2:
+
+def median(lst):
+    lstLen = len(lst)
+    index = (lstLen - 1) // 2
+
+    if (lstLen % 2):
+        return lst[index]
+    else:
+        for i in range(0, len(lst)):
+            lst[i] = int(lst[i])
+        return (lst[index] + lst[index + 1])/2.0
+
+number = input("Enter a number: ")
+store = [number]
+while number != (""):
+    number = input("Enter a number: ")
+    zf = [number]
+    store.extend(zf)
+store.sort()
+while '' in store:
+    store.remove('')
+print("Median = " ,median(store))
+
+
+
+problem 3:
+
+def isPalindrome(data):
+    letters = [c for c in data if c.isalpha()]
+    return letters == letters[::-1]
+
+userInput = input("Enter a string: ")
+answer = isPalindrome(userInput.casefold())
+if answer:
+    print("It is a palindrome!")
+else:
+    print("It is not a palindrome!")

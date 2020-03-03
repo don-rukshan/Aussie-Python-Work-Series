@@ -1,0 +1,119 @@
+WS10
+
+3.2 problem 1>>
+
+
+class GoCard:
+
+    def __init__(self, initialBalance):
+        self.initialBalance = initialBalance
+        self.startup = initialBalance
+        self.cost = []
+        self.count = 0
+        self.reload = []
+
+
+    def topUps(self, reload):
+        self.reload.append(reload)
+        self.initialBalance += reload
+        return self.initialBalance, self.reload
+
+    def fareCost(self, cost):
+        self.cost.append(cost)
+        self.initialBalance -= cost
+        return self.initialBalance, self.cost
+
+
+startGoCard = int(input("Creating Account. Input initial Amount: "))
+P1 = GoCard(startGoCard)
+while True:
+    data = input("? ").split(" ")
+    if data[0].casefold() == "r":
+        if 0 < 1 < len(data) and data[1].replace(".","").isdigit():
+            dataVal = float(data[1])
+            P1.fareCost(dataVal)
+        else:
+            print("Bad Command")
+    elif data[0].casefold() == "t":
+        if 0 < 1 < len(data) and data[1].replace(".","").isdigit():
+            dataVal = float(data[1])
+            P1.topUps(dataVal)
+        else:
+            print("Bad Command")
+    elif data[0].casefold() == "b":
+        print("Balance = $ %.2f " % P1.initialBalance)
+    elif data[0].casefold() == "q":
+        exit()
+
+    else:
+        print("Bad Command")
+
+
+
+---------------------------------------------------------------------------------------------------
+
+3.3 Problem 2>>
+
+
+
+class GoCard:
+
+    def __init__(self, initialBalance):
+        self.initialBalance = initialBalance
+        self.startup = initialBalance
+        self.cost = []
+        self.count = 0
+        self.reload = []
+        self.balanceF = []
+        self.balanceT = []
+
+    def topUps(self, reload):
+        self.reload.append(reload)
+        self.initialBalance += reload
+        self.balanceT.append(self.initialBalance)
+        return self.initialBalance, self.reload
+
+    def fareCost(self, cost):
+        self.cost.append(cost)
+        self.initialBalance -= cost
+        self.balanceF.append(self.initialBalance)
+        return self.initialBalance, self.cost
+
+    def func(self):
+        print("\nStatement")
+        print("event                amount($)      balance($)")
+        print("Initial Balance %29.2f" % self.startup)
+        for i in range(len(self.cost)):
+            print("Ride %24.2f  %14.2f" % (self.cost[i], self.balanceF[i]))
+        for i in range(len(self.reload)):
+            print("Top Up %22.2f  %14.2f" % (self.reload[i], self.balanceT[i]))
+        print("Balance %37.2f" % self.initialBalance)
+
+
+startGoCard = int(input("Creating Account. Input initial Amount: "))
+P1 = GoCard(startGoCard)
+while True:
+    data = input("? ").split(" ")
+    if data[0].casefold() == "r":
+        if 0 < 1 < len(data) and data[1].replace(".","").isdigit():
+            dataVal = float(data[1])
+            P1.fareCost(dataVal)
+        else:
+            print("Bad Command")
+    elif data[0].casefold() == "t":
+        if 0 < 1 < len(data) and data[1].replace(".","").isdigit():
+            dataVal = float(data[1])
+            P1.topUps(dataVal)
+        else:
+            print("Bad Command")
+    elif data[0].casefold() == "b":
+        print("Balance = $ %.2f " % P1.initialBalance)
+    elif data[0].casefold() == "q":
+        P1.func()
+        exit()
+
+    else:
+        print("Bad Command")
+
+
+

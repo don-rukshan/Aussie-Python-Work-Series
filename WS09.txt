@@ -1,0 +1,102 @@
+WS09
+
+3)))
+
+problem 1:
+
+
+def hasNumbers(inputString):
+    return any(char.isdigit() for char in inputString)
+
+
+print("Welcome to the Adder REPL")
+c = ["gets", "adds", "input", "print"]
+d = ({})
+while True:
+    A1 = input("??? ")
+    if A1.casefold() == "quit":
+        print("Goodbye")
+        break
+
+    if any(ele in A1 for ele in c):
+        A1_split = A1.split(" ")
+
+        if A1_split[0].casefold() == "input":
+
+            var = A1_split[1]
+            A2 = int(input("Enter a value for " + var+": "))
+            default_data1 = {var: A2}
+            d.update(default_data1)
+            #print(d)
+
+        elif A1_split[1].casefold() == "gets":
+            var = A1_split[0]
+            val = A1_split[2]
+            if hasNumbers(var):
+                print("Syntax error")
+            else:
+                if hasNumbers(val):
+                    val2=int(val)
+                    default_data2 = {var: val2}
+                    d.update(default_data2)
+                    #print(d)
+                else:
+                    val2 = d[val]
+                    default_data2 = {var: val2}
+                    d.update(default_data2)
+                    #print(d)
+
+        elif A1_split[1].casefold() == "adds":
+            var = A1_split[0]
+            val = d[A1_split[2]]
+            var_gets_val = (d[A1_split[0]])+val
+            default_data2 = {var: var_gets_val}
+            d.update(default_data2)
+            #print(d)
+
+        elif A1_split[0].casefold() == "print":
+            var = A1_split[1]
+            if hasNumbers(var):
+                print(var)
+            else:
+                if var not in d:
+                    print(var+" is undefined")
+                elif d[var]in d.values():
+                    print(var + " equals " + str(d[var]))
+    else:
+        print("Syntax error")
+
+
+
+----------------------------------------------------------------------------------------------------
+
+problem 2:
+
+
+f = open((input("Script name: ")).capitalize()+".ad",'w')
+
+d = ({})
+while True:
+        A2 = int(input("Enter a value for sons : "))
+        default_data1 = {'sons': A2}
+        d.update(default_data1)
+        default_data2 = {'children': d['sons']}
+        d.update(default_data2)
+        #print(d)
+
+        A3 = int(input("Enter a value for daughters : "))
+        default_data1 = {'daughters': A3}
+        d.update(default_data1)
+        var_gets_val = (d['sons']) + A3
+        default_data2 = {'children': var_gets_val}
+        d.update(default_data2)
+        #print(d)
+
+        print("children equals " + str(d['children']))
+        break
+
+
+---------------------------------------------------------------------------------------------------
+
+
+
